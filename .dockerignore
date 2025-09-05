@@ -1,65 +1,60 @@
 # Dependencies
-node_modules
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Next.js
+# Build outputs
 .next/
 out/
-build/
 dist/
+build/
 
-# Environment variables
+# Environment files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
 
 # Testing
 coverage/
 .nyc_output/
-jest.config.js
-**/*.test.*
-**/*.spec.*
+**/*.test.js
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.js
+**/*.spec.ts
+**/*.spec.tsx
 __tests__/
+jest.config.js
+cypress/
 
-# IDE and editor files
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS generated files
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-
-# Git
-.git/
-.gitignore
-.gitattributes
-
-# Documentation
-README.md
-CHANGELOG.md
-LICENSE
-*.md
+ehthumbs.db
 
 # Logs
 logs/
 *.log
 
-# Cache directories
+# Cache
+.npm/
+.yarn/
+.pnpm/
 .cache/
 .tmp/
 .temp/
+
+# Git
+.git/
+.gitignore
 
 # TypeScript
 *.tsbuildinfo
@@ -67,22 +62,15 @@ logs/
 # ESLint
 .eslintcache
 
-# Optional npm cache directory
-.npm
+# Optional: Documentation (comment out if you want to include)
+# README.md
+# CHANGELOG.md
+# LICENSE
 
-# Optional REPL history
-.node_repl_history
+# Development tools
+.prettierrc*
+.eslintrc*
 
-# Yarn
-.yarn/
-.yarnrc.yml
-
-# Local development files
-docker-compose.yml
-docker-compose.override.yml
-Dockerfile
-.dockerignore
-
-# Backup files
-*.bak
-*.backup
+# Deployment specific
+Dockerfile*
+docker-compose*.yml

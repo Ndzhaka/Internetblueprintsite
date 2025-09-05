@@ -1,15 +1,38 @@
 [variables]
-NODE_ENV = "production"
-NEXT_TELEMETRY_DISABLED = "1"
+NODE_VERSION = "18"
+NPM_VERSION = "9"
+NIXPACKS_BUILD_TIME_ENV = "true"
 
 [phases.setup]
-nixPkgs = ["nodejs_18", "npm-9_x"]
+nixPkgs = ["nodejs_18", "npm"]
 
 [phases.install]
-cmd = "npm ci --only=production"
+cmds = [
+  "npm ci --prefer-offline --no-audit"
+]
 
 [phases.build]
-cmd = "npm run build"
+cmds = [
+  "npm run build"
+]
 
 [start]
 cmd = "npm start"
+
+[buildImage]
+name = "node:18-alpine"
+
+[static]
+# Ensure static files are served correctly
+dir = "public"
+
+# Environment variables for build process
+[buildtime_env]
+NEXT_TELEMETRY_DISABLED = "1"
+NODE_ENV = "production"
+
+# Runtime environment variables
+[runtime_env]
+NODE_ENV = "production"
+PORT = "3000"
+HOSTNAME = "0.0.0.0"
